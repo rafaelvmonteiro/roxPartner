@@ -15,7 +15,7 @@
     * [Questão 5](#Questão-5)
 <!--te-->
 ### Cloud Storage:
-De primeiro momento foi criado o datalake "Dl_RoxPartner", de segunda instância importei os CSV do teste para camada "raw" do datalake, posteriormente carreguei os dados para dentro do BigQuery, e de última instância fazendo as querys para a resolução das questões, automatizando dentro do código python, e salvado o output em CSV na cama core do datalake 
+De primeiro momento foi criado o datalake "Dl_RoxPartner", no segundo momento importei os CSV do teste para camada "raw" do datalake, posteriormente carreguei os dados para dentro do BigQuery, e no último momento fazendo as querys para a resolução das questões, automatizando dentro do código python, e salvado o output em CSV na cama core do datalake 
 
 
 ### Ferramentas:
@@ -210,11 +210,12 @@ df.to_csv (r'gs://roxpartner/Dl_RoxPartner/core/questao_5.csv', index = None, se
 ```
 ### Ecossistema Google Cloud Platform
 
-![Diagrama Ferramentas roxPartner drawio](https://user-images.githubusercontent.com/110641665/183228919-0ed64c4e-556d-48a8-9332-8915af070033.png)
+![Feito Diagrama Ferramentas roxPartner drawio](https://user-images.githubusercontent.com/110641665/183254184-37044e5a-0059-443a-bf0c-cacdbcf053e3.png)
 
 
 
-### Cloud Storage
+
+### Cloud Storage        (Datalake)
 ![storage](https://user-images.githubusercontent.com/110641665/183229261-753fdef5-9560-41aa-a2dd-d370cf3b6c12.PNG)
 
 

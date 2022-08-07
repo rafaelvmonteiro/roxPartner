@@ -2,19 +2,18 @@
 ### Introdução 
 
 <!--ts-->
-* Google Cloud Platform
-  * Cloud Storage  
+  * [Caminho](#caminho)
   * [Ferramentas](#ferramentas)
   * [Analisando os dados](#Analisando-os-dados)
-  * [Ecossistema-GCP](#Ecossistema-GCP)
   * [Quantidade de questões](#Quantidade-de-questões) 
     * [Questão 1](#Questão-1)
     * [Questão 2](#Questão-2)
     * [Questão 3](#Questão-3)
     * [Questão 4](#Questão-4)
     * [Questão 5](#Questão-5)
+    * [Ecossistema-GCP](#Ecossistema-GCP)
 <!--te-->
-### Cloud Storage:
+### Caminho:
 De primeiro momento foi criado o datalake "Dl_RoxPartner", no segundo momento importei os CSV do teste para camada "raw" do datalake, posteriormente carreguei os dados para dentro do BigQuery, e no último momento fazendo as querys para a resolução das questões, automatizando dentro do código python, e salvado o output em CSV na cama core do datalake 
 
 
@@ -59,6 +58,9 @@ client = bigquery.Client() ###Inicia o cliente para acesso ao cloud BigQuery dep
  
 Usado o comando distinct para evitar duplicidade, depois converto o resultado da query para um dataframe Pandas após isso é convertido o resultado da tabela no BigQuery pra pandas e por final é ultilizado  o comando para salvar o dataframe em um CSV no datalake na camada Core
 
+![questão 1](https://user-images.githubusercontent.com/110641665/183313652-da5e255c-320e-4cc2-83ac-7763919ad8ad.PNG)
+
+
 
 ```
 QUERY = 
@@ -77,6 +79,9 @@ df.to_csv(r'gs://roxpartner/Dl_RoxPartner/core/questao_1.csv', index = None, sep
 
 ### Escreva uma query que ligue as tabelas Sales.SalesOrderDetail, Sales.SpecialOfferProduct e Production.Product e retorne os 3 produtos (Name) mais vendidos(pela ### ### soma de OrderQty), agrupados pelo número de dias para manufatura(DaysToManufacture)
 Primeiro foi selecionado as tabelas e as colunas após isso, foi feito o left join para criar uma junção externa esquerda, assim resultando no total de vendas
+
+![2](https://user-images.githubusercontent.com/110641665/183313860-aef98801-44e1-4cc9-aa8f-9ea870877a6e.PNG)
+
 ```
 QUERY =
 
@@ -116,6 +121,9 @@ df.to_csv (r'gs://roxpartner/Dl_RoxPartner/core/questao_2.csv', index = None, se
 # Questão 3
 ### Escreva uma query ligando as tabelas Person_Person, Sales_Customer e Sales_SalesOrderHeader de forma a obter uma lista de nomes de clientes e uma contagem de pedidos efetuados.
 Seguindo os mesmos passos de cima, selecionando colunas e tabelas, fazendo o left join para junção esqueda de tabela, resultando na nova tabela nome_cliente
+
+![3](https://user-images.githubusercontent.com/110641665/183313886-4bc0b2f7-2fed-4d4f-8650-d1a29c0d715e.PNG)
+
 ```
 QUERY =
 WITH 
@@ -161,6 +169,9 @@ converter a coluna OrderQty para int,pois será posteriormente usada operaçao d
 # Questão 4
 ### Escreva uma query usando as tabelas Sales.SalesOrderHeader, Sales.SalesOrderDetail e Production.Product, de forma a obter a soma total de produtos (OrderQty) por ### ProductID e OrderDate. 
 Retornando a query usada na ultima questão, fazendo a seleção, left join e no final resultando um total de vendas
+
+![4](https://user-images.githubusercontent.com/110641665/183313894-5467b8ed-b8cf-4221-8fd0-fa7bd1698355.PNG)
+
 ```
 WITH 
 SalesOrderDetail AS (SELECT ProductID, SalesOrderID, OrderQty FROM `dataset_roxpartner.tb_Sales_SalesOrderDetail`),
@@ -189,6 +200,8 @@ ORDER BY total_vendas DESC
 # Questão 5
 ### Escreva uma query mostrando os campos SalesOrderID, OrderDate e TotalDue da tabela Sales.SalesOrderHeader. Obtenha apenas as linhas onde a ordem tenha sido feita durante o mês de setembro/2011 e o total devido esteja acima de 1.000.Ordene pelo total devido decrescente.
 Selecionando e filtrando com a data pedida no comando da questão
+
+![5](https://user-images.githubusercontent.com/110641665/183313920-e64165bf-3c85-4fb1-9f16-e284b55387ee.PNG)
 
 ```
 QUERY = 

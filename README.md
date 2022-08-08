@@ -58,7 +58,8 @@ client = bigquery.Client() ###Inicia o cliente para acesso ao cloud BigQuery dep
  
 Usado o comando distinct para evitar duplicidade, depois converto o resultado da query para um dataframe Pandas após isso é convertido o resultado da tabela no BigQuery pra pandas e por final é ultilizado  o comando para salvar o dataframe em um CSV no datalake na camada Core
 
-![questão 1](https://user-images.githubusercontent.com/110641665/183313652-da5e255c-320e-4cc2-83ac-7763919ad8ad.PNG)
+![1 certo](https://user-images.githubusercontent.com/110641665/183318431-9832bb4d-6ce3-4d4b-91d4-f818e4242ec3.PNG)
+
 
 
 
@@ -77,10 +78,11 @@ df.to_csv(r'gs://roxpartner/Dl_RoxPartner/core/questao_1.csv', index = None, sep
 ```
 # Questão 2
 
-### Escreva uma query que ligue as tabelas Sales.SalesOrderDetail, Sales.SpecialOfferProduct e Production.Product e retorne os 3 produtos (Name) mais vendidos(pela ### ### soma de OrderQty), agrupados pelo número de dias para manufatura(DaysToManufacture)
+### Escreva uma query que ligue as tabelas Sales.SalesOrderDetail, Sales.SpecialOfferProduct e Production.Product e retorne os 3 produtos (Name) mais vendidos(pela soma de OrderQty), agrupados pelo número de dias para manufatura(DaysToManufacture)
 Primeiro foi selecionado as tabelas e as colunas após isso, foi feito o left join para criar uma junção externa esquerda, assim resultando no total de vendas
 
-![2](https://user-images.githubusercontent.com/110641665/183313860-aef98801-44e1-4cc9-aa8f-9ea870877a6e.PNG)
+![2 certo](https://user-images.githubusercontent.com/110641665/183318447-e3074752-94cb-43d5-8c4e-b587a3fd0bd1.PNG)
+
 
 ```
 QUERY =
@@ -122,7 +124,9 @@ df.to_csv (r'gs://roxpartner/Dl_RoxPartner/core/questao_2.csv', index = None, se
 ### Escreva uma query ligando as tabelas Person_Person, Sales_Customer e Sales_SalesOrderHeader de forma a obter uma lista de nomes de clientes e uma contagem de pedidos efetuados.
 Seguindo os mesmos passos de cima, selecionando colunas e tabelas, fazendo o left join para junção esqueda de tabela, resultando na nova tabela nome_cliente
 
-![3](https://user-images.githubusercontent.com/110641665/183313886-4bc0b2f7-2fed-4d4f-8650-d1a29c0d715e.PNG)
+![3 certo](https://user-images.githubusercontent.com/110641665/183318696-d104e99a-ec47-4e28-bbae-9d98c6aee9ca.PNG)
+
+
 
 ```
 QUERY =
@@ -167,10 +171,12 @@ df.to_csv (r'gs://roxpartner/Dl_RoxPartner/core/questao_3.csv', index = None, se
 converter a coluna OrderQty para int,pois será posteriormente usada operaçao de soma 
 ```
 # Questão 4
-### Escreva uma query usando as tabelas Sales.SalesOrderHeader, Sales.SalesOrderDetail e Production.Product, de forma a obter a soma total de produtos (OrderQty) por ### ProductID e OrderDate. 
+### Escreva uma query usando as tabelas Sales.SalesOrderHeader, Sales.SalesOrderDetail e Production.Product, de forma a obter a soma total de produtos (OrderQty) por ProductID e OrderDate. 
 Retornando a query usada na ultima questão, fazendo a seleção, left join e no final resultando um total de vendas
 
-![4](https://user-images.githubusercontent.com/110641665/183313894-5467b8ed-b8cf-4221-8fd0-fa7bd1698355.PNG)
+![4 certo](https://user-images.githubusercontent.com/110641665/183318671-2c2cff8d-eed1-4645-97af-c68aa0625b25.PNG)
+
+
 
 ```
 WITH 
@@ -201,7 +207,8 @@ ORDER BY total_vendas DESC
 ### Escreva uma query mostrando os campos SalesOrderID, OrderDate e TotalDue da tabela Sales.SalesOrderHeader. Obtenha apenas as linhas onde a ordem tenha sido feita durante o mês de setembro/2011 e o total devido esteja acima de 1.000.Ordene pelo total devido decrescente.
 Selecionando e filtrando com a data pedida no comando da questão
 
-![5](https://user-images.githubusercontent.com/110641665/183313920-e64165bf-3c85-4fb1-9f16-e284b55387ee.PNG)
+![5 certo](https://user-images.githubusercontent.com/110641665/183318473-264c047e-1eb3-43af-81e4-066c2f177c92.PNG)
+
 
 ```
 QUERY = 
@@ -252,6 +259,24 @@ df.to_csv (r'gs://roxpartner/Dl_RoxPartner/core/questao_5.csv', index = None, se
 
 ### Python
 ![python](https://user-images.githubusercontent.com/110641665/183245015-cc4bef1f-a6c4-4888-aa12-175ec304786c.PNG)
+
+
+# Diagramas 
+### Diagrama Questão 2
+![Diagrama roxPartner-Página-1 drawio](https://user-images.githubusercontent.com/110641665/183317022-dc2f0245-763b-491b-bb72-3b74cdbd8523.png)
+
+### Questão 3
+![Diagrama roxPartner-Página-2 drawio](https://user-images.githubusercontent.com/110641665/183317035-537c4944-1ad8-4765-88f3-c92f0b91d957.png)
+
+### Questão 4
+![Diagrama roxPartner-Página-3 drawio](https://user-images.githubusercontent.com/110641665/183317054-bfbfefe7-eb40-4ad4-85e0-07785b0fa64f.png)
+
+### Questão 5
+![Diagrama roxPartner-Página-4 drawio](https://user-images.githubusercontent.com/110641665/183317089-c0769010-64a3-4476-9040-b10612ca9d7c.png)
+
+
+
+
 
 
 

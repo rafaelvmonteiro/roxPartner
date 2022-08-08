@@ -262,7 +262,7 @@ df.to_csv (r'gs://roxpartner/Dl_RoxPartner/core/questao_5.csv', index = None, se
 
 
 # Diagramas 
-### Diagrama Questão 2
+### Questão 2
 ![Diagrama roxPartner-Página-1 drawio](https://user-images.githubusercontent.com/110641665/183317022-dc2f0245-763b-491b-bb72-3b74cdbd8523.png)
 
 ### Questão 3

@@ -11,7 +11,7 @@
     * [Questão 3](#Questão-3)
     * [Questão 4](#Questão-4)
     * [Questão 5](#Questão-5)
-    * [Ecossistema-GCP](#Ecossistema-GCP)
+    * [Ecossistema Google Cloud Platform](#Ecossistema-Google-Cloud-Platform)
 <!--te-->
 ### Caminho:
 Inicialmente foi criado o datalake "Dl_RoxPartner", em seguida importei os CSV do teste para camada "raw" do datalake, posteriormente carreguei os dados para dentro do BigQuery, e no último momento fazendo as querys para a resolução das questões, automatizando dentro do código python, e salvado o output em CSV na camada "core" do datalake 
